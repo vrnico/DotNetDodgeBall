@@ -34,6 +34,7 @@ namespace DodgeBall.Controllers
             }
 
             var thisTeam = await _context.Teams.Include(team => team.Players)
+                .Include(t => t.Division )
                 .SingleOrDefaultAsync(m => m.TeamId == id);
             if (thisTeam == null)
             {
@@ -80,7 +81,7 @@ namespace DodgeBall.Controllers
             {
                 return NotFound();
             }
-            ViewData["DivisionId"] = new SelectList(_context.Divisions, "DivisionId", "DivisionId", team.DivisionId);
+            ViewData["DivisionId"] = new SelectList(_context.Divisions, "DivisionId", "Name", team.DivisionId);
             return View(team);
         }
 
