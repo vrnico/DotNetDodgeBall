@@ -33,15 +33,14 @@ namespace DodgeBall.Controllers
                 return NotFound();
             }
 
-            var team = await _context.Teams
-                .Include(t => t.Division)
+            var thisTeam = await _context.Teams.Include(team => team.Players)
                 .SingleOrDefaultAsync(m => m.TeamId == id);
-            if (team == null)
+            if (thisTeam == null)
             {
                 return NotFound();
             }
 
-            return View(team);
+            return View(thisTeam);
         }
 
         // GET: Teams/Create
