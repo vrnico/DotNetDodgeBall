@@ -46,7 +46,7 @@ namespace DodgeBall.Controllers
         // GET: Teams/Create
         public IActionResult Create()
         {
-            ViewData["DivisionId"] = new SelectList(_context.Divisions, "DivisionId", "DivisionId");
+            ViewData["DivisionName"] = new SelectList(_context.Divisions, "DivisionId", "Name");
             return View();
         }
 
