@@ -12,6 +12,8 @@ namespace DodgeBall.Models
 
         public DbSet<Team> Teams { get; set; }
 
+        public DbSet<Player> Players { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseMySql(@"Server=localhost;Port=8889;database=DodgeBall;uid=root;pwd=root;");

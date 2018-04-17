@@ -8,9 +8,10 @@ using DodgeBall.Models;
 namespace DodgeBall.Migrations
 {
     [DbContext(typeof(DodgeBallDbContext))]
-    partial class DodgeBallDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180417174926_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -35,8 +36,6 @@ namespace DodgeBall.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
-
-                    b.Property<bool>("PaidDues");
 
                     b.Property<int>("TeamId");
 

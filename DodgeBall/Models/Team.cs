@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DodgeBall.Models
 {
+    [Table("Teams")]
     public class Team
     {
         [Key]

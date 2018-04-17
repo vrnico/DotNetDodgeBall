@@ -14,7 +14,8 @@ namespace DodgeBall.Migrations
                 {
                     DivisionId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGeneratedOnAdd", true),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    SkillLevel = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -41,6 +42,31 @@ namespace DodgeBall.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Players",
+                columns: table => new
+                {
+                    PlayerId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGeneratedOnAdd", true),
+                    Name = table.Column<string>(nullable: true),
+                    TeamId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Players", x => x.PlayerId);
+                    table.ForeignKey(
+                        name: "FK_Players_Teams_TeamId",
+                        column: x => x.TeamId,
+                        principalTable: "Teams",
+                        principalColumn: "TeamId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Players_TeamId",
+                table: "Players",
+                column: "TeamId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Teams_DivisionId",
                 table: "Teams",
@@ -49,6 +75,9 @@ namespace DodgeBall.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Players");
+
             migrationBuilder.DropTable(
                 name: "Teams");
 
