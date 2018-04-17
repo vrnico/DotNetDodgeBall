@@ -26,16 +26,22 @@ namespace DodgeBall
             services.AddEntityFramework()
                 .AddDbContext<DodgeBallDbContext>(options =>
                     options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddMvc();
+
         }
-
-
-        public void Configure(IApplicationBuilder app)
+    public void Configure(IApplicationBuilder app)
         {
-
+            app.UseStaticFiles();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                  name: "default",
+                  template: "{controller=Home}/{action=Index}/{id?}");
+            });
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Hello Joel");
             });
         }
     }
