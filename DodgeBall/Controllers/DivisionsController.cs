@@ -32,14 +32,14 @@ namespace DodgeBall.Controllers
                 return NotFound();
             }
 
-            var division = await _context.Divisions
+            var thisDivision = await _context.Divisions.Include(division => division.Teams)
                 .SingleOrDefaultAsync(m => m.DivisionId == id);
-            if (division == null)
+            if (thisDivision == null)
             {
                 return NotFound();
             }
 
-            return View(division);
+            return View(thisDivision);
         }
 
         // GET: Divisions/Create
