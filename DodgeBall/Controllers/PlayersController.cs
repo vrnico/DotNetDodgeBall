@@ -47,7 +47,7 @@ namespace DodgeBall.Controllers
         // GET: Players/Create
         public IActionResult Create()
         {
-            ViewData["TeamId"] = new SelectList(_context.Teams, "TeamId", "TeamId");
+            ViewData["TeamName"] = new SelectList(_context.Teams, "TeamId", "Name");
             return View();
         }
 
