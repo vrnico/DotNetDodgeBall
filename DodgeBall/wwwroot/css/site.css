@@ -1,7 +1,53 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('../images/courtbg.jpg');
 }
+
+.redcol {
+    background-color: red;
+    margin: 1em;
+    text-align: center;
+    font-size: 4em;
+    background: -webkit-linear-gradient(to right, #e52d27, #b31217);
+    background: linear-gradient(to right, #e52d27, #b31217);
+    border-radius: 2em;
+}
+
+.yellcol {
+    margin: 1em;
+    text-align: center;
+    font-size: 4em;
+    text-shadow: 1px 1px black;
+    background: -webkit-linear-gradient(to right, #e52d27, #b31217);
+    background: linear-gradient(to right, #e52d27, #d5151c);
+    border-radius: 2em;
+}
+
+.center {
+    margin: auto;
+    width: 70%;
+}
+
+.bluecol {
+    margin: 1em;
+    text-align: center;
+    font-size: 4em;
+    text-shadow: 1px 1px black;
+    background: -webkit-linear-gradient(to right, #e52d27, #b31217);
+    background: linear-gradient(to right, #e52d27, #ea2e34);
+    border-radius: 2em;
+}
+
+.col-md-4 a {
+    text-decoration:  none;
+    color: white;
+    text-shadow: 1px 1px black;
+
+}
+
+
+
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */

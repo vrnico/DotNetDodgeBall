@@ -1,5 +1,14 @@
-﻿<h1>Portland DodgeBall League</h1>
-
-<p>@Html.ActionLink("Division", "Index", "Divisions")</p>
-<p>@Html.ActionLink("Teams", "Index", "Teams")</p>
-<p>@Html.ActionLink("Player Roster", "Index", "Players")</p>
+﻿
+<div class="center">
+    <div class="row">
+        <div class="col-md-4 redcol">
+            @Html.ActionLink("Division", "Index", "Divisions")
+        </div>
+        <div class="col-md-4 bluecol">
+            @Html.ActionLink("Teams", "Index", "Teams")
+        </div>
+        <div class="col-md-4 yellcol">
+            @Html.ActionLink("Player Roster", "Index", "Players")
+        </div>
+    </div>
+</div>
